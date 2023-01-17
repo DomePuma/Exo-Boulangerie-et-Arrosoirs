@@ -22,23 +22,45 @@
         {
             this.parcelle = parcelle;
         }
-
         /**
          * Renvoie le nombre d'arroseurs présents dans la parcelle
          * Les arroseurs sont représentés par la lette "o"
          */
         public int GetNombreArroseurs()
         {
-            return 0;
-        }
+            int nbArroseur = 0;
+            for (int i = 0; i < parcelle.GetLength(1); i++)
+            {
+                for (int j = 0; j < parcelle.GetLength(0); j++)
+                {
+                    if (parcelle[j,i] == 'o')
+                    {
+                        nbArroseur += 1;
+                    }
+                }
 
+            }
+            return nbArroseur;
+        }
         /**
          * Renvoie le nombre de plants présents dans la parcelle
          * Les plants sont représentés par la lettre "x"
          */
         public int GetNombrePlants()
         {
-            return 0;
+            int nbPlante = 0;
+            for (int i = 0; i < parcelle.GetLength(1); i++)
+            {
+                for (int j = 0; j < parcelle.GetLength(0); j++)
+                {
+                    if (parcelle[j, i] == 'x')
+                    {
+                        nbPlante += 1;
+                    }
+                }
+
+            }
+            return nbPlante;
         }
 
         /**
@@ -50,7 +72,19 @@
          */
         public int GetNombrePlantsArroses()
         {
-            return 0;
+            int nbArrosee = 0;
+            for (int i = 0; i < parcelle.GetLength(1); i++)
+            {
+                for (int j = 0; j < parcelle.GetLength(0); j++)
+                {
+                    if (parcelle[j, i] == 'o')
+                    {
+
+                    }
+                }
+
+            }
+            return nbArrosee;
         }
     }
 }
