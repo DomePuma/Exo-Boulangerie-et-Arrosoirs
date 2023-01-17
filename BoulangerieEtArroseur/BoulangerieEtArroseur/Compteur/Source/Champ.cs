@@ -72,7 +72,19 @@
          */
         public int GetNombrePlantsArroses()
         {
-            return 0;
+            int nbArrosee = 0;
+            for (int i = 0; i < parcelle.GetLength(1); i++)
+            {
+                for (int j = 0; j < parcelle.GetLength(0); j++)
+                {
+                    if (parcelle[j, i] == 'o')
+                    {
+
+                    }
+                }
+
+            }
+            return nbArrosee;
         }
     }
 }
