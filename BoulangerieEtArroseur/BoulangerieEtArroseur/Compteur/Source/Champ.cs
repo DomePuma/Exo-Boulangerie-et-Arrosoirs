@@ -1,5 +1,4 @@
-﻿
-namespace BoulangerieEtArroseur.Compteur.Source
+﻿namespace BoulangerieEtArroseur.Compteur.Source
 {
     class Champ
     {

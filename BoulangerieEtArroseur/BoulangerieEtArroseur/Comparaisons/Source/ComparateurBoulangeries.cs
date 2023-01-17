@@ -1,4 +1,6 @@
 ﻿
+using System.Reflection.Metadata.Ecma335;
+
 namespace BoulangerieEtArroseur.Comparaisons.Source
 {
     class ComparateurBoulangeries
@@ -28,7 +30,16 @@ namespace BoulangerieEtArroseur.Comparaisons.Source
          */
         public int GetMeilleureBoulangerie()
         {
-            return 0;
+            float a = boulangeries[0];
+            for (int i = 1; i < boulangeries.Length; i++)
+            {
+                if (a > boulangeries[i])
+                {
+                    a = boulangeries[i];
+                }
+            }
+            int b = Array.IndexOf(boulangeries, a);
+            return b;
         }
 
         /**
@@ -45,7 +56,18 @@ namespace BoulangerieEtArroseur.Comparaisons.Source
          */
         public int GetNombreMaxBaguettes(float monnaie)
         {
-            return 0;
+            float a = boulangeries[0];
+            for (int i = 1; i < boulangeries.Length; i++)
+            {
+                if (a > boulangeries[i])
+                {
+                    a = boulangeries[i];
+                }
+            }
+            int nbBaguette;
+            if (a == 0.0f) { nbBaguette = int.MaxValue; }
+            else { nbBaguette = (int)(monnaie / a); }
+            return nbBaguette;
         }
     }
 }
