@@ -19,7 +19,6 @@ namespace BoulangerieEtArroseur.Comparaisons.Test
             int nbMaxBaguettes = comparateur.GetNombreMaxBaguettes(monnaie);
             Assert.AreEqual(10, nbMaxBaguettes);
         }
-
         [TestMethod]
         public void ComparaisonExempleMoinsDArgent()
         {
@@ -33,7 +32,6 @@ namespace BoulangerieEtArroseur.Comparaisons.Test
             int nbMaxBaguettes = comparateur.GetNombreMaxBaguettes(monnaie);
             Assert.AreEqual(1, nbMaxBaguettes);
         }
-
         [TestMethod]
         public void Comparaison10Boulangeries()
         {
@@ -75,7 +73,6 @@ namespace BoulangerieEtArroseur.Comparaisons.Test
             int nbMaxBaguettes = comparateur.GetNombreMaxBaguettes(monnaie);
             Assert.AreEqual(0.0f, nbMaxBaguettes);
         }
-
         [TestMethod]
         public void ComparaisonGratuit()
         {
@@ -89,6 +86,5 @@ namespace BoulangerieEtArroseur.Comparaisons.Test
             int nbMaxBaguettes = comparateur.GetNombreMaxBaguettes(monnaie);
             Assert.AreEqual(int.MaxValue, nbMaxBaguettes);
         }
-
     }
 }

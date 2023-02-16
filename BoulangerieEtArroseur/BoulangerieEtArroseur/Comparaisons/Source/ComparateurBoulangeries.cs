@@ -1,7 +1,4 @@
-﻿
-using System.Reflection.Metadata.Ecma335;
-
-namespace BoulangerieEtArroseur.Comparaisons.Source
+﻿namespace BoulangerieEtArroseur.Comparaisons.Source
 {
     class ComparateurBoulangeries
     {
@@ -14,12 +11,10 @@ namespace BoulangerieEtArroseur.Comparaisons.Source
          *      0.6     0.8     1.0
          */
         float[] boulangeries;
-
         public ComparateurBoulangeries(float[] boulangeries)
         {
             this.boulangeries = boulangeries;
         }
-
         /**
          * Renvoie la position dans le tableau de la boulangerie 
          * dont le prix est le plus bas
@@ -41,7 +36,6 @@ namespace BoulangerieEtArroseur.Comparaisons.Source
             int b = Array.IndexOf(boulangeries, a);
             return b;
         }
-
         /**
          * Pour un montant donné, 
          * renvoie le nombre maximum de baguettes que l'on peut acheter.
@@ -66,7 +60,7 @@ namespace BoulangerieEtArroseur.Comparaisons.Source
             }
             int nbBaguette;
             if (a == 0.0f) { nbBaguette = int.MaxValue; }
-            else { nbBaguette = (int)(monnaie / a); }
+            else { nbBaguette = (int)Math.Floor(monnaie / a); }
             return nbBaguette;
         }
     }

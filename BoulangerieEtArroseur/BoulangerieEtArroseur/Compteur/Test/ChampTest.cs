@@ -83,7 +83,7 @@ namespace BoulangerieEtArroseur.Compteur.Test
             Assert.AreEqual(7, nbPlants);
 
             int nbPlantsArroses = champ.GetNombrePlantsArroses();
-            Assert.AreEqual(8, nbPlantsArroses);
+            Assert.AreEqual(7, nbPlantsArroses);
         }
 
         [TestMethod]

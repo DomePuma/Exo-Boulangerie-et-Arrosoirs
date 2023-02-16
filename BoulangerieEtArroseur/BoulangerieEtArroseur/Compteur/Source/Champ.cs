@@ -17,10 +17,32 @@
          * Pour obtenir le nombre de colonnes : parcelle.GetLength(1)
          */
         char[,] parcelle;
-
+        char arroseur = 'o';
+        char plant = 'x';
         public Champ(char[,] parcelle)
         {
             this.parcelle = parcelle;
+        }
+
+        public int Tableau(char valeur)
+        {
+            int nbColonnes = parcelle.GetLength(1);
+            int nbLignes = parcelle.GetLength(0);
+
+
+            int occurence = 0;
+
+            for (int i = 0; i < nbColonnes; i++)
+            {
+                for (int j = 0; j < nbLignes; j++)
+                {
+                    if (parcelle[j, i] == valeur)
+                    {
+                        occurence++;
+                    }
+                }
+            }
+            return occurence;
         }
         /**
          * Renvoie le nombre d'arroseurs présents dans la parcelle
@@ -28,19 +50,7 @@
          */
         public int GetNombreArroseurs()
         {
-            int nbArroseur = 0;
-            for (int i = 0; i < parcelle.GetLength(1); i++)
-            {
-                for (int j = 0; j < parcelle.GetLength(0); j++)
-                {
-                    if (parcelle[j,i] == 'o')
-                    {
-                        nbArroseur += 1;
-                    }
-                }
-
-            }
-            return nbArroseur;
+            return Tableau(arroseur);
         }
         /**
          * Renvoie le nombre de plants présents dans la parcelle
@@ -48,19 +58,7 @@
          */
         public int GetNombrePlants()
         {
-            int nbPlante = 0;
-            for (int i = 0; i < parcelle.GetLength(1); i++)
-            {
-                for (int j = 0; j < parcelle.GetLength(0); j++)
-                {
-                    if (parcelle[j, i] == 'x')
-                    {
-                        nbPlante += 1;
-                    }
-                }
-
-            }
-            return nbPlante;
+            return Tableau(plant);
         }
 
         /**
@@ -72,19 +70,39 @@
          */
         public int GetNombrePlantsArroses()
         {
-            int nbArrosee = 0;
-            for (int i = 0; i < parcelle.GetLength(1); i++)
-            {
-                for (int j = 0; j < parcelle.GetLength(0); j++)
-                {
-                    if (parcelle[j, i] == 'o')
-                    {
+            int nbColonnes = parcelle.GetLength(1);
+            int nbLignes = parcelle.GetLength(0);
 
+            int plantArroses = 0;
+            for (int i = 0; i < nbColonnes; i++)
+            {
+                for (int j = 0; j < nbLignes; j++)
+                {
+                    if (parcelle[j, i] == arroseur)
+                    {
+                        for (int k = -1; k < 2; k++)
+                        {
+                            for (int l = -1; l < 2; l++)
+                            {
+                                int n = i + k;
+                                int m = j + l;
+                                if (n >= 0 && n < nbColonnes)
+                                {
+                                    if (m >= 0 && m < nbLignes)
+                                    {
+                                        if (parcelle[m, n] == plant)
+                                        {
+                                            parcelle[m, n] = 'z';
+                                            plantArroses++;
+                                        }
+                                    }
+                                }
+                            }
+                        }
                     }
                 }
-
             }
-            return nbArrosee;
+            return plantArroses;
         }
     }
 }
